@@ -54,7 +54,7 @@ class CardController extends Controller
     {
         $card->update($request->all());
 
-        return (new CardResource($card))->additional(['message' => 'Card updated correctly']);
+        return (new CardResource($card))->additional(['msg' => 'Card updated correctly']);
     }
 
     /**
@@ -67,6 +67,6 @@ class CardController extends Controller
     {
         $card->delete();
 
-        return (new CardResource($card))->additional(['message' => 'Card deleted correctly']);
+        return (new CardResource($card))->additional(['msg' => 'Card deleted correctly']);
     }
 }

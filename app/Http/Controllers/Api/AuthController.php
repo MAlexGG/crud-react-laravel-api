@@ -30,10 +30,11 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-        $user = User::where('email', $request->email)->first();
+        $user = User::with('roles')->where('email', $request->email)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
+                'res' => true,
                 'msg' => ['The provided credentials are incorrect.'],
             ]);
         }
@@ -42,7 +43,10 @@ class AuthController extends Controller
 
         return response()->json([
             'res' => true,
-            'token' => $token
+            'msg' => [
+                'token' => $token,
+                'user' => $user
+            ]
         ], 200);
     }
 
@@ -52,7 +56,7 @@ class AuthController extends Controller
 
         return response()->json([
             'res' => true,
-            'token' => 'Token successfully deleted'
+            'msg' => 'Token successfully deleted'
         ], 200);
     }
 }

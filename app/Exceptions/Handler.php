@@ -46,17 +46,17 @@ class Handler extends ExceptionHandler
     {
         return response()->json([
             'res' => __('Los datos proporcionados no son válidos.'),
-            'errors' => $exception->errors(),
+            'msg' => $exception->errors(),
         ], $exception->status);
     }
 
     public function render($request, Throwable $exception){
         if($exception instanceof ModelNotFoundException){
-            return response()->json(["res" => false, "error" => "Error, card not found"], 400);
+            return response()->json(["res" => false, "msg" => "Error, card not found"], 400);
         }
 
         if ($exception instanceof RouteNotFoundException) {
-            return response()->json(["res" => false, "error" => "Can't access to this website, please log in"], 401);
+            return response()->json(["res" => false, "msg" => "Can't access to this website, please log in"], 401);
         }
 
         return parent::render($request, $exception);
