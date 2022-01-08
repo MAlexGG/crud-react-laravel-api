@@ -20,6 +20,8 @@ class AuthController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
+        $user->roles()->attach($request->roles);
+
         return response()->json([
             'res' => true,
             'msg' => 'User successfully registered'
