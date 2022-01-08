@@ -96,6 +96,8 @@ class CardController extends Controller
     public function destroy(Card $card)
     {
         $card->delete();
+        $destination = public_path("storage\\" . $card->image);
+        File::delete($destination);
 
         return (new CardResource($card))->additional(['msg' => 'Card deleted correctly']);
     }
