@@ -21,7 +21,7 @@ class AuthController extends Controller
         $user->save();
 
         $user->roles()->attach($request->roles);
-
+        
         return response()->json([
             'res' => true,
             'msg' => 'User successfully registered'
@@ -35,7 +35,7 @@ class AuthController extends Controller
         if (!$user || !Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
                 'res' => true,
-                'msg' => ['The provided credentials are incorrect.'],
+                'msg' => ['The credentials are incorrect.']
             ]);
         }
 
@@ -44,6 +44,7 @@ class AuthController extends Controller
         return response()->json([
             'res' => true,
             'msg' => [
+                'msg' => 'User has successfully logged in',
                 'token' => $token,
                 'user' => $user
             ]
@@ -56,7 +57,7 @@ class AuthController extends Controller
 
         return response()->json([
             'res' => true,
-            'msg' => 'Token successfully deleted'
+            'msg' => 'User has successfully logged out'
         ], 200);
     }
 }

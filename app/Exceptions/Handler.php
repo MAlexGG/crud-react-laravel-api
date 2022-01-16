@@ -7,6 +7,8 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpFoundation\Test\Constraint\ResponseIsUnprocessable;
+use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -45,10 +47,11 @@ class Handler extends ExceptionHandler
     protected function invalidJson($request, ValidationException $exception)
     {
         return response()->json([
-            'res' => __('Los datos proporcionados no son válidos.'),
-            'msg' => $exception->errors(),
+            "res" => __('Los datos proporcionados no son válidos.'),
+            "msg" => $exception->errors(),
         ], $exception->status);
     }
+
 
     public function render($request, Throwable $exception){
         if($exception instanceof ModelNotFoundException){

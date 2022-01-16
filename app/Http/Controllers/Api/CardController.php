@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CardResource;
 use App\Http\Requests\SaveCardRequest;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateCardRequest;
 use Illuminate\Support\Facades\File;
 
