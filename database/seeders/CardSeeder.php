@@ -17,12 +17,12 @@ class CardSeeder extends Seeder
        DB::table('cards')->insert([
         [
             'title' => 'Moonlight',
-            'image' => 'imageOfMoon',
+            'image' => 'img/moon.jpg',
             'created_at' => date('Y-m-d H:i:s')
         ],
         [
             'title' => 'Waikiki beach',
-            'image' => 'imageOfBeach',
+            'image' => 'img/beach.jpg',
             'created_at' => date('Y-m-d H:i:s')
         ]
        ]); 

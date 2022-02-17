@@ -6,9 +6,9 @@ use App\Models\Card;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CardResource;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\SaveCardRequest;
 use App\Http\Requests\UpdateCardRequest;
-use Illuminate\Support\Facades\File;
 
 class CardController extends Controller
 {
@@ -41,6 +41,7 @@ class CardController extends Controller
         $card->save();
 
         return (new CardResource($card))->additional(['msg' => 'Card saved correctly']);
+
     }
 
     /**
