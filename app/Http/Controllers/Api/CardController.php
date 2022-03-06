@@ -71,11 +71,11 @@ class CardController extends Controller
         $destination = public_path("storage\\".$card->image);
         $filename = "";
 
-        if($request->hasFile('new_image')){
+        if($request->hasFile('image')){
             if (File::exists($destination)) {
                 File::delete($destination);
             }
-            $filename = $request->file('new_image')->store('img', 'public');
+            $filename = $request->file('image')->store('img', 'public');
         } else {
             $filename = $request->image;
         }

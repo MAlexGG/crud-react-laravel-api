@@ -25,7 +25,7 @@ class UpdateCardRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'image' => 'required'
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg'
         ];
     }
 }
