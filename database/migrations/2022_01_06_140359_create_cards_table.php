@@ -17,6 +17,7 @@ class CreateCardsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('image');
+            $table->longText('description');
             $table->timestamps();
         });
     }

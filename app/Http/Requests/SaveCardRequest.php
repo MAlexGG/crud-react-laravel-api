@@ -25,7 +25,8 @@ class SaveCardRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg'
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
+            'description' => 'required'
         ];
     }
 }

@@ -17,8 +17,8 @@ class CardFactory extends Factory
         return [
             'title' => $this->faker->name(),
             'image' => $this->faker->imageUrl(),
+            'description' => $this->faker->text(),
             'id' => null
         ];
     }
-
 }
