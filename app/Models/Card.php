@@ -11,7 +11,8 @@ class Card extends Model
 
     protected $fillable = [
         'title',
-        'image'
+        'image',
+        'description'
     ];
 
     protected $hidden = [

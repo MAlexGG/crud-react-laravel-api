@@ -41,7 +41,6 @@ class CardController extends Controller
         $card->save();
 
         return (new CardResource($card))->additional(['msg' => 'Card saved correctly']);
-
     }
 
     /**
@@ -68,10 +67,10 @@ class CardController extends Controller
         return (new CardResource($card))->additional(['msg' => 'Card updated correctly']); */
 
         $card = Card::findorFail($card->id);
-        $destination = public_path("storage\\".$card->image);
+        $destination = public_path("storage\\" . $card->image);
         $filename = "";
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             if (File::exists($destination)) {
                 File::delete($destination);
             }
@@ -81,6 +80,7 @@ class CardController extends Controller
         }
 
         $card->title = $request->title;
+        $card->description = $request->description;
         $card->image = $filename;
         $card->update();
 

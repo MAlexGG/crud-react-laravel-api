@@ -18,6 +18,7 @@ class CardResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'image' => $this->image,
+            'description' => $this->description,
             'created_at' => $this->created_at->format('d-m-Y')
         ];
     }
