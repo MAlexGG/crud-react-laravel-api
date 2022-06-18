@@ -68,7 +68,7 @@ class CardController extends Controller
 
         $card = Card::findorFail($card->id);
         $destination = public_path("storage\\" . $card->image);
-        $filename = "";
+        $filename = '';
 
         if ($request->hasFile('image')) {
             if (File::exists($destination)) {
