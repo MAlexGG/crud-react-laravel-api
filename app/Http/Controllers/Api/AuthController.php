@@ -21,10 +21,14 @@ class AuthController extends Controller
         $user->save();
 
         $user->roles()->attach($request->roles);
-        
+
+        $token = $user->createToken($request->email)->plainTextToken;
+
         return response()->json([
             'res' => true,
-            'msg' => 'User successfully registered'
+            'msg' => 'User successfully registered',
+            'token' => $token,
+            'user' => $user
         ], 200);
     }
 
