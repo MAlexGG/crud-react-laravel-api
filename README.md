@@ -12,7 +12,8 @@ Working with Authorization and Authentication
 This is a website for pedagogical purposes for fullstack bootcamp students, it's a PHP API with auth and tokens that makes a simple CRUD, the back repo: https://github.com/MAlexGG/crud-react-laravel-api-front.git
 
 ### UI Design
-![Crud-React-UI](https://user-images.githubusercontent.com/73828751/147887251-cc96092e-6ebf-47d1-974d-61814f38b6e4.jpg)
+
+<img width="576" alt="crud" src="https://user-images.githubusercontent.com/73828751/226593718-88fe7dbc-6424-4fb8-87ba-d6e2aecfbd19.png">
 
 ## Technologies
 It was developed with PHP Laravel, with storage link and sanctum, the UI was designed in Figma. 
